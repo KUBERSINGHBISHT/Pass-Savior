@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator & Storage App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <p>Min 8, Max 12</p>
+        <div class="password-settings">
+            <label for="length">Password Length:</label>
+            
+            <input type="number" id="length" value="12" min="8" max="12">
+        </div>
+        
+        <button id="generate-btn">Generate Password</button>
+        <input type="text" id="generated-password" readonly>
+
+        <div class="service">
+            <label for="service-name">Service Name:</label>
+            <input type="text" id="service-name" placeholder="   e.g., Facebook, Google">
+        </div>
+
+        <button id="save-btn">Save Password</button>
+        <!--<div id="status"></div>-->
+
+        <button id="show-btn">Show Password</button>
+        <div id="status"></div>
+
+        <div id="status1"></div>
+        <!--<h2>Stored Passwords</h2>-->
+        <ul id="password-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

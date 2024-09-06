@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.password-settings {
+    margin: 2px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#generated-password {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.service {
+    margin-top: 20px;
+}
+
+#password-list {
+    list-style: none;
+    padding: 0;
+}
+
+#password-list li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+}
+
+#status1 {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+label {
+    font-weight: bold;
+}
+
+.service {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 9.5px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#service-name {
+    border-radius: 5px;
+    border-color: black;
+    border-width: 0.2px;
+
+}
+/* Style for the list item */
+.password-item {
+    display: flex;
+    justify-content: space-between; /* Space between text and buttons */
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Style for the button container */
+.button-container {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+}
+
+/* Style for the Copy and Delete buttons */
+.copy-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+/* Specific styles for buttons */
+.copy-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+/* Hover effect for buttons */
+.copy-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+input {
+    padding: 5px;
+}
