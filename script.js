@@ -89,7 +89,8 @@ function displayStoredPasswords(name) {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert('Password copied to clipboard');
+        //alert('Password copied to clipboard');
+        document.getElementById("status").textContent = "Password Copy Successfully!";
     }).catch(err => {
         console.error('Could not copy text: ', err);
     });
