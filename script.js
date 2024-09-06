@@ -91,6 +91,7 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
         //alert('Password copied to clipboard');
         document.getElementById("status").textContent = "Password Copy Successfully!";
+        document.getElementById("status").style.color = "green";
     }).catch(err => {
         console.error('Could not copy text: ', err);
     });
