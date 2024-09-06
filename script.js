@@ -62,6 +62,8 @@ function displayStoredPasswords(name) {
             );
             if (itemIndex !== -1) {
                 deletePassword(itemIndex);
+                removeitSavepass();
+                document.getElementById("status1").textContent = "";
             }
         });
 
