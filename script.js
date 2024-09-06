@@ -114,6 +114,7 @@ document.getElementById('generate-btn').addEventListener('click', function() {
     const length = document.getElementById('length').value;
     if (length < 8 || length > 12) {
         document.getElementById("status").textContent = "Password should be not less than 8 and greater than 12 character!";
+        document.getElementById("status").style.color = "red";
     } else {
         const password = generatePassword(length);
         document.getElementById('generated-password').value = password;
@@ -130,6 +131,7 @@ document.getElementById('save-btn').addEventListener('click', function() {
     
     if (!serviceName || !password) {
         document.getElementById("status").textContent = "Please generate a password and enter the service name!";
+        document.getElementById("status").style.color = "red";
         return;
     }
 
@@ -147,6 +149,7 @@ document.getElementById('show-btn').addEventListener('click', function() {
         removeitSavepass();
         document.getElementById("status1").textContent = "";
         document.getElementById("status").textContent = "Please Enter Service Name!";
+        document.getElementById("status").style.color = "red";
     } else {
         displayStoredPasswords(serviceName);
     }
