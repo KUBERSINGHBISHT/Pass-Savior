@@ -65,6 +65,7 @@ function displayStoredPasswords(name) {
                 deletePassword(itemIndex);
                 removeitSavepass();
                 document.getElementById("status1").textContent = "";
+                document.getElementById("status").textContent = "Data Deleted Successfully";
             }
         });
 
