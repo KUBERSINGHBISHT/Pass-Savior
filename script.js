@@ -14,6 +14,7 @@ function savePassword(service, password) {
     storedPasswords.push({ service, password });
     localStorage.setItem('passwords', JSON.stringify(storedPasswords));
     document.getElementById("status").textContent = "Password saved successfully!";
+    document.getElementById("status").style.color = "green";
 }
 
 // Display passwords from localStorage
@@ -109,11 +110,12 @@ document.getElementById('generate-btn').addEventListener('click', function() {
     document.getElementById("status1").textContent = "";
     const length = document.getElementById('length').value;
     if (length < 8 || length > 12) {
-        document.getElementById("status").textContent = "Password should be not less than 8 and greater than 12 character";
+        document.getElementById("status").textContent = "Password should be not less than 8 and greater than 12 character!";
     } else {
         const password = generatePassword(length);
         document.getElementById('generated-password').value = password;
     }
+    
 });
 
 // Handle the Save Password button click
