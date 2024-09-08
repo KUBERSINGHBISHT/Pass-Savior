@@ -15,6 +15,9 @@ function savePassword(service, password) {
     localStorage.setItem('passwords', JSON.stringify(storedPasswords));
     document.getElementById("status").textContent = "Password saved successfully!";
     document.getElementById("status").style.color = "green";
+    document.getElementById('generated-password').value = "";
+    document.getElementById('manual-password').value = "";
+    document.getElementById('service-name').value = "";
 }
 
 // Display passwords from localStorage
@@ -82,6 +85,7 @@ function displayStoredPasswords(name) {
         passwordList.appendChild(li);
 
         document.getElementById('generated-password').value = "";
+        document.getElementById('manual-password').value = "";
         document.getElementById('service-name').value = "";
         document.getElementById("status").textContent = "";
     });
@@ -112,6 +116,8 @@ document.getElementById('generate-btn').addEventListener('click', function() {
     removeitSavepass();
     document.getElementById("status").textContent = "";
     document.getElementById("status1").textContent = "";
+    document.getElementById('manual-password').value = "";
+    document.getElementById('service-name').value = "";
     const length = document.getElementById('length').value;
     if (length < 8 || length > 12) {
         document.getElementById("status").textContent = "Password should be not less than 8 and greater than 12 character!";
@@ -125,22 +131,44 @@ document.getElementById('generate-btn').addEventListener('click', function() {
 
 // Handle the Save Password button click
 document.getElementById('save-btn').addEventListener('click', function() {
-    removeitSavepass();
-    document.getElementById("status1").textContent = "";
+    removeitSavepass(); // Assuming this is a function that clears something before saving
+    document.getElementById("status1").textContent = ""; // Clear any existing status message
+
     const serviceName = document.getElementById('service-name').value.toUpperCase();
-    const password = document.getElementById('generated-password').value;
-    
-    if (!serviceName || !password) {
+    const autopassword = document.getElementById('generated-password').value;
+    const manualpassword = document.getElementById('manual-password').value;
+
+    // Check if both password fields are empty
+    if (!autopassword && !manualpassword) {
         document.getElementById("status").textContent = "Please generate a password and enter the service name!";
         document.getElementById("status").style.color = "red";
         return;
     }
 
+    // Check if the service name is empty
+    if (!serviceName) {
+        document.getElementById("status").textContent = "Please enter the service name!";
+        document.getElementById("status").style.color = "red";
+        return;
+    }
+
+    if (autopassword != "" && manualpassword != "") {
+        document.getElementById("status").textContent = "Please Clear One Password!";
+        document.getElementById("status").style.color = "red";
+        return;
+    }
+
+    // Determine which password to save (either the auto-generated or the manually entered one)
+    const password = autopassword || manualpassword;
+
+    // Save the password
     savePassword(serviceName, password);
-    document.getElementById('generated-password').value = "";
-    document.getElementById('service-name').value = "";
-    
+
+    // Clear the status message and update with success status
+    document.getElementById("status").textContent = "Password saved successfully!";
+    document.getElementById("status").style.color = "green";
 });
+
 
 // Show Save Password Button Click
 document.getElementById('show-btn').addEventListener('click', function() {
@@ -156,6 +184,17 @@ document.getElementById('show-btn').addEventListener('click', function() {
     }
     
 });
+
+function clearInput1() {
+    var inputElement = document.getElementById('generated-password');
+    inputElement.value = '';
+    document.getElementById("status").textContent = "";
+  }
+
+function clearInput2() {
+    document.getElementById('manual-password').value = '';
+    document.getElementById("status").textContent = "";
+  }
 
 // Display stored passwords on page load
 //window.onload = displayStoredPasswords;
